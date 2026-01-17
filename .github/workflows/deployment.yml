@@ -1,0 +1,42 @@
+name: Test Project
+on: push
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        working-directory: ./second-action
+        run: npm ci
+
+      - name: Run tests
+        working-directory: ./second-action
+        run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        working-directory: ./second-action
+        run: npm ci
+
+      - name: Build project
+        working-directory: ./second-action
+        run: npm run build
+
+      - name: Deploy to server
+        run: echo "Deploying to server..."
