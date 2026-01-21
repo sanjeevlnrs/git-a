@@ -1,0 +1,14 @@
+name: "Get & cache dependencies"
+description: "An action to get and cache dependencies for a Node.js project"
+runs:
+  using: "composite"
+  steps:
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      working-directory: ./second-action
+      run: npm ci
+      shell: bash
