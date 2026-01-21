@@ -9,6 +9,8 @@ jobs:
 
       - name: Install Node.js & dependencies
         uses: ./.github/actions/cached-deps
+        with:
+          node-version: "18"
 
       - name: Run tests
         working-directory: ./second-action
@@ -22,6 +24,8 @@ jobs:
 
       - name: Install Node.js & dependencies
         uses: ./.github/actions/cached-deps
+        with:
+          node-version: "18"
 
       - name: Build project
         working-directory: ./second-action

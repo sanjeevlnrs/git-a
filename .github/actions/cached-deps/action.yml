@@ -1,12 +1,17 @@
 name: "Get & cache dependencies"
 description: "An action to get and cache dependencies for a Node.js project"
+inputs:
+  node-version:
+    description: "The Node.js version to install"
+    required: false
+    default: "18"
 runs:
   using: "composite"
   steps:
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: inputs.node-version
 
     - name: Install dependencies
       working-directory: ./second-action
