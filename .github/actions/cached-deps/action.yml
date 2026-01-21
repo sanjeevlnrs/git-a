@@ -5,6 +5,10 @@ inputs:
     description: "The Node.js version to install"
     required: false
     default: "18"
+outputs:
+  node-version:
+    description: "The Node.js version that was installed"
+    value: "${{ steps.install-deps.outputs.nodeversion }}"
 runs:
   using: "composite"
   steps:
@@ -14,6 +18,9 @@ runs:
         node-version: ${{ inputs.node-version }}
 
     - name: Install dependencies
+      id: install-deps
       working-directory: ./second-action
-      run: npm ci
+      run: |
+        npm ci
+        echo "nodeversion='${{ inputs.node-version }}'" >> $GITHUB_OUTPUT
       shell: bash
