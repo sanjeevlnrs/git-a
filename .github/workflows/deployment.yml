@@ -37,3 +37,8 @@ jobs:
 
       - name: Deploy to server
         run: echo "Deploying to server..."
+  information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run javaScript Action
+        uses: ./.github/actions/javascript-action
