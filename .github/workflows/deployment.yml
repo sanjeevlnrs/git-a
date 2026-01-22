@@ -45,3 +45,5 @@ jobs:
 
       - name: Run local javascript action
         uses: ./.github/actions/javascript-action
+        with:
+          log-message: "Deployment completed successfully!"
