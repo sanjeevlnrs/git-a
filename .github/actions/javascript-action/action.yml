@@ -1,5 +1,10 @@
 name: Javascript action
 description: Javascript action demo
+inputs:
+  log-message:
+    description: "Message to log"
+    required: true
+    default: "Hello from JavaScript Action!"
 runs:
   using: "node16"
   main: "main.js"

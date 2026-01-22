@@ -3,7 +3,8 @@ const github = require("@actions/github");
 const exec = require("@actions/exec");
 
 function run() {
-  core.notice("Hello from JavaScript Action!");
+  const message = core.getInput("log-message", { required: true });
+  core.notice(`JavaScript Action says: ${message}`);
 }
 
 run();
