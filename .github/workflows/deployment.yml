@@ -44,6 +44,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run local javascript action
+        id: run-local-javascript-action
         uses: ./.github/actions/javascript-action
         with:
           log-message: "Deployment completed successfully!"
+
+      - name: Show logged message
+        run: |
+          echo "Logged message: ${{ steps.run-local-javascript-action.outputs.logged-message }}"

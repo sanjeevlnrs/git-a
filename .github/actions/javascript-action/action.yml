@@ -5,6 +5,9 @@ inputs:
     description: "Message to log"
     required: true
     default: "Hello from JavaScript Action!"
+outputs:
+  logged-message:
+    description: "The message that was logged"
 runs:
   using: "node16"
   main: "main.js"
